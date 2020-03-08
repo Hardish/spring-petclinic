@@ -15,7 +15,7 @@
   <name>petclinic</name>
 
   <properties>
-
+ <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
     <!-- Generic properties -->
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -137,12 +137,12 @@
         <version>${spring-format.version}</version>
         <!-- run ./mvnw spring-javaformat:apply to apply -->
         <executions>
-          <execution>
+<!--           <execution>
             <phase>validate</phase>
             <goals>
               <goal>validate</goal>
             </goals>
-          </execution>
+          </execution> -->
         </executions>
       </plugin>
       <plugin>
@@ -162,7 +162,7 @@
           </dependency>
         </dependencies>
         <executions>
-          <execution>
+<!--           <execution>
             <id>nohttp-checkstyle-validation</id>
             <phase>validate</phase>
             <configuration>
@@ -176,7 +176,7 @@
             <goals>
               <goal>check</goal>
             </goals>
-          </execution>
+          </execution> -->
         </executions>
       </plugin>
       <plugin>
@@ -222,7 +222,7 @@
 
       <!-- Spring Boot Actuator displays build-related information if a git.properties
         file is present at the classpath -->
-      <plugin>
+<!--       <plugin>
         <groupId>pl.project13.maven</groupId>
         <artifactId>git-commit-id-plugin</artifactId>
         <executions>
@@ -240,19 +240,19 @@
           </generateGitPropertiesFilename>
           <failOnNoGitDirectory>false</failOnNoGitDirectory>
         </configuration>
-      </plugin>
+      </plugin> -->
 
       <plugin>
         <groupId>ro.isdc.wro4j</groupId>
         <artifactId>wro4j-maven-plugin</artifactId>
         <version>${wro4j.version}</version>
         <executions>
-          <execution>
+    <!--       <execution>
             <phase>generate-resources</phase>
             <goals>
               <goal>run</goal>
             </goals>
-          </execution>
+          </execution> -->
         </executions>
         <configuration>
           <wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
@@ -274,6 +274,18 @@
           </dependency>
         </dependencies>
       </plugin>
+      <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-dependency-plugin</artifactId>
+		<version>2.4</version>
+		<executions>
+			<execution>
+			<id>copy-dependencies</id>
+			<phase>package</phase>
+			<goals><goal>copy-dependencies</goal></goals>
+			</execution>
+		</executions>
+	</plugin>
     </plugins>
   </build>
 
