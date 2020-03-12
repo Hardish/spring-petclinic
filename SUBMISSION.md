@@ -5,6 +5,8 @@ DOCKER
 ![Screen Capture #1](images/ImageHW8_3_1.jpg)
 
 DOCKER COMPOSE - MYSQL ONLY 
+
+
 4.	(5 pts) The output from the docker-compose up command.![Screen Capture #1](images/ImageHW8_4_1.jpg)
 ![Screen Capture #1](images/ImageHW8_4_2.jpg)
 
